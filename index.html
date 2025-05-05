@@ -10,37 +10,53 @@
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #1a0033, #2b0040);
+      background: linear-gradient(135deg, #000428, #004e92);
       background-attachment: fixed;
       font-family: 'Press Start 2P', monospace;
-      color: #ff99cc;
+      color: #8be9fd;
       text-shadow: 2px 2px #000;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      overflow: hidden;
     }
 
-    h1 {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-      animation: flicker 1.5s infinite alternate;
+    header {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    marquee {
+      font-size: 0.7rem;
+      color: #00ffff;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     p {
       font-size: 0.75rem;
       max-width: 600px;
       text-align: center;
-      padding: 0 20px;
-      margin-bottom: 2rem;
+      margin: 30px 0;
     }
 
     .button {
       background-color: transparent;
-      color: #ff99cc;
-      border: 2px solid #ff99cc;
+      color: #8be9fd;
+      border: 2px solid #8be9fd;
       padding: 10px 20px;
       font-size: 0.75rem;
       font-family: 'Press Start 2P', monospace;
@@ -51,20 +67,30 @@
     }
 
     .button:hover {
-      background-color: #ff99cc;
-      color: #1a0033;
-    }
-
-    @keyframes flicker {
-      from { opacity: 1; }
-      to { opacity: 0.7; }
+      background-color: #8be9fd;
+      color: #000428;
     }
   </style>
 </head>
 <body>
-  <h1>THE NEUROMANCER PACKAGE</h1>
-  <p>IF YOU WISH TO EXPERIENCE MORE JOURNEYS LIKE THIS,<br>
-  PURCHASE THE <strong>NEUROMANCER REKAL PACKAGE</strong>.</p>
-  <a class="button" href="#">PURCHASE PACKAGE</a>
+  <header>
+    <h1>THE NEUROMANCER PACKAGE</h1>
+    <marquee behavior="scroll" direction="left">☁️ Welcome to the SimStim Interface — Rekal guarantees memories so vivid, they’ll overwrite your soul ☁️</marquee>
+  </header>
+
+  <main>
+    <p>IF YOU WISH TO EXPERIENCE MORE JOURNEYS LIKE THIS,<br>
+    PURCHASE THE <strong>NEUROMANCER REKAL PACKAGE</strong>.</p>
+    <button class="button" onclick="causeError()">PURCHASE PACKAGE</button>
+  </main>
+
+  <script>
+    function causeError() {
+      alert("ERROR 0x0A: MEMORY MODULE FAILURE. REKAL PACKAGE UNAVAILABLE.");
+      setTimeout(() => {
+        location.reload();
+      }, 1000);
+    }
+  </script>
 </body>
 </html>
